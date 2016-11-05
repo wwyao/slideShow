@@ -8,11 +8,7 @@ window.onload = function(){
 
 	var zindex = 6;
 	var iCurrent = 0;
-	var start = 0;
-	var last = 2;
-	var oleft = small_pic.offsetLeft;
 	show(iCurrent);
-			// console.log(iCurrent);
 	
 	window.onmousemove = function(event){
 		if(big_pic.offsetLeft <= event.pageX && event.pageX < big_pic.offsetLeft+big_pic.offsetWidth/2 && big_pic.offsetTop <= event.pageX && event.pageY <= big_pic.offsetTop+big_pic.offsetHeight){
@@ -45,7 +41,7 @@ window.onload = function(){
 			}
 			iCurrent = this.tag;
 			// console.log(start,last,this.tag);
-			console.log(iCurrent);
+			// console.log(iCurrent);
 		};
 	}
 	pre.onclick = function (){
@@ -86,16 +82,6 @@ window.onload = function(){
 		b_pic[tag].style.zIndex = zindex;
 		b_pic[tag].style.height = '0px';
 		attributeAnim(b_pic[tag],{height:big_pic.offsetHeight});
-		// if(tag === start && start !== 0) {
-		// 	start--;
-		// 	last--;
-		// 	attributeAnim(small_pic,{left:small_pic.offsetLeft+sm_pic[tag].offsetWidth-oleft});
-		// }
-		// if(tag === last && last !== 5) {
-		// 	start++;
-		// 	last++;
-		// 	attributeAnim(small_pic,{left:small_pic.offsetLeft-sm_pic[tag].offsetWidth-oleft});
-		// }
 		if(tag === 0){
  	  		attributeAnim(small_pic,{left:0});
  	  	}else if(tag === sm_pic.length-1){
@@ -103,6 +89,5 @@ window.onload = function(){
  	  	}else{
  	 		attributeAnim(small_pic,{left:-(tag-1)*sm_pic[tag].offsetWidth});  	
  	 	}
-		// console.log((small_pic.offsetLeft-oleft)/sm_pic[tag].offsetWidth);
 	}
 }
